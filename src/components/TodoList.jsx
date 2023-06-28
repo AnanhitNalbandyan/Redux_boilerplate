@@ -1,18 +1,30 @@
 import { useState } from 'react'
+import { useSelector,useDispatch } from 'react-redux'
 import './todoList.css'
-export const TodoList = () => {
-  const [todos, setTodos] = useState([
-    { text: 'sdfsd', id: 1 },
-    { text: 'sdfsd', id: 3 },
-  ])
+import { addTodo, deleteTodo, toggleTodo } from '../redux/actionCreater'
 
+export const TodoList = () => {
+const todos = useSelector((state)=> state.todos.todos)
+  console.log(todos)
+  
+  const dispatch = useDispatch()
   const [todoText, setTodoText] = useState('')
 
-  const handleAddTodo = () => {}
+  const handleAddTodo = () => {
+    
+    dispatch(addTodo(todoText))
+  }
 
-  const handleToggleTodo = (id) => {}
+  const handleToggleTodo = (id) => {
 
-  const handleRemoveTodo = (id) => {}
+    dispatch(deleteTodo(id))
+  }
+
+  const handleRemoveTodo = (id) => {
+
+    dispatch(toggleTodo(id))
+
+  }
 
   return (
     <div className="container">
