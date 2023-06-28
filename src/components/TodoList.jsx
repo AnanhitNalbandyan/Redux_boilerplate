@@ -16,14 +16,13 @@ const todos = useSelector((state)=> state.todos.todos)
   }
 
   const handleToggleTodo = (id) => {
-
-    dispatch(deleteTodo(id))
+    dispatch(toggleTodo(id))
+  
   }
 
   const handleRemoveTodo = (id) => {
-
-    dispatch(toggleTodo(id))
-
+    dispatch(deleteTodo(id))
+    
   }
 
   return (

@@ -53,7 +53,7 @@ export const todoReducer = (state = initialTodoState, action) => {
             }
         case 'DELETE_TODO':
             
-        const updatedTodos = state.todos.filter((todo) => todo.id !== action.payload);
+        const updatedTodos = state.todos.filter((todo) => todo.id !== action.payload)
         return {
             ...state,
             todos: updatedTodos,
