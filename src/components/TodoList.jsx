@@ -13,6 +13,7 @@ const todos = useSelector((state)=> state.todos.todos)
   const handleAddTodo = () => {
     
     dispatch(addTodo(todoText))
+    setTodoText('')
   }
 
   const handleToggleTodo = (id) => {
