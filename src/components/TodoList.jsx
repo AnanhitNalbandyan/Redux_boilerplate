@@ -1,14 +1,18 @@
 import { useState } from 'react'
-import { useSelector,useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from "react-redux"
 import './todoList.css'
-import { addTodo, deleteTodo, toggleTodo } from '../redux/actionCreater'
+//import { addTodo, deleteTodo, toggleTodo } from '../redux/actionCreater'
+import {addTodo, deleteTodo, toggleTodo } from '../redux/todoSlice'
+
 
 export const TodoList = () => {
+
+  const [todoText, setTodoText] = useState('')
+  
 const todos = useSelector((state)=> state.todos.todos)
   console.log(todos)
   
   const dispatch = useDispatch()
-  const [todoText, setTodoText] = useState('')
 
   const handleAddTodo = () => {
     

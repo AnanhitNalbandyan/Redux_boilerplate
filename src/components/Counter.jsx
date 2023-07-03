@@ -1,21 +1,23 @@
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import{inscrease, descrease, changeByValue} from '../redux/actionCreater'
-
+//import{inscrease, descrease, changeByValue} from '../redux/actionCreater'
+import { increment, decrement, icrimentByAmount} from '../redux/counterSlice'
 export const Counter = () => {
-        const [value, setValue]=useState('')
-    const counter = useSelector((state) => state.counter.count) 
+    const [value, setValue]=useState('')
 
+    const counter = useSelector((store) => store.counter.count)
+
+    
     console.log(counter)
 
     const dispatch = useDispatch()
     return (
         <div>
             <h1>{counter}</h1>
-            <button onClick={()=>dispatch(inscrease())}>increase</button>
-            <button onClick={()=>dispatch(descrease())}>decrease</button>
+            <button onClick={()=>dispatch(increment())}>increase</button>
+            <button onClick={()=>dispatch(decrement())}>decrease</button>
                 <input type="number" onChange={(ev) => setValue(ev.target.value)} />
-                <button onClick={()=>dispatch(changeByValue(parseInt(value)))}>ChangeByValue</button>
+                <button onClick={()=>dispatch(icrimentByAmount(parseInt(value)))}>ChangeByValue</button>
         </div>
     )
     }
